@@ -21,8 +21,7 @@ public class TestUtil extends TestBase {
 	public static long PAGE_LOAD_TIMEOUT = 20;
 	public static long IMPLICIT_WAIT = 20;
 
-	public static String TESTDATA_SHEET_PATH = "/Users/naveenkhunteta/Documents/workspace"
-			+ "/FreeCRMTest/src/main/java/com/crm/qa/testdata/FreeCrmTestData.xlsx";
+	public static String TESTDATA_SHEET_PATH = "src/main/resources/FreeCrmTestData.xlsx";
 
 	static Workbook book;
 	static Sheet sheet;
@@ -33,17 +32,11 @@ public class TestUtil extends TestBase {
 	}
 
 	public static Object[][] getTestData(String sheetName) {
-		FileInputStream file = null;
+		FileInputStream file;
 		try {
 			file = new FileInputStream(TESTDATA_SHEET_PATH);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
-		try {
 			book = WorkbookFactory.create(file);
-		} catch (InvalidFormatException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
+		} catch (InvalidFormatException | IOException e) {
 			e.printStackTrace();
 		}
 		sheet = book.getSheet(sheetName);
@@ -85,14 +78,20 @@ public class TestUtil extends TestBase {
 		// jquery-growl w/ no frills
 		js.executeScript("$.growl({ title: 'GET', message: '/' });");
 //'"+color+"'"
-		if (messageType.equals("error")) {
-			js.executeScript("$.growl.error({ title: 'ERROR', message: '"+message+"' });");
-		}else if(messageType.equals("info")){
-			js.executeScript("$.growl.notice({ title: 'Notice', message: 'your notice message goes here' });");
-		}else if(messageType.equals("warning")){
-			js.executeScript("$.growl.warning({ title: 'Warning!', message: 'your warning message goes here' });");
-		}else
-			System.out.println("no error message");
+		switch (messageType) {
+			case "error":
+				js.executeScript("$.growl.error({ title: 'ERROR', message: '" + message + "' });");
+				break;
+			case "info":
+				js.executeScript("$.growl.notice({ title: 'Notice', message: 'your notice message goes here' });");
+				break;
+			case "warning":
+				js.executeScript("$.growl.warning({ title: 'Warning!', message: 'your warning message goes here' });");
+				break;
+			default:
+				System.out.println("no error message");
+				break;
+		}
 		// jquery-growl w/ colorized output
 //		js.executeScript("$.growl.error({ title: 'ERROR', message: 'your error message goes here' });");
 //		js.executeScript("$.growl.notice({ title: 'Notice', message: 'your notice message goes here' });");

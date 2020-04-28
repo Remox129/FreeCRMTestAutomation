@@ -33,14 +33,11 @@ public class ContactsPageTest extends TestBase{
 	ContactsPage contactsPage;
 	
 	String sheetName = "contacts";
-	
-	   
+
 	public ContactsPageTest(){
 			super();
-			
 	}
-	
-	
+
 	@BeforeMethod
 	public void setUp() throws InterruptedException {
 		
@@ -68,7 +65,6 @@ public class ContactsPageTest extends TestBase{
 	public void selectMultipleContactsTest(){
 		contactsPage.selectContactsByName("test2 test2");
 		contactsPage.selectContactsByName("ui uiii");
-
 	}
 	
 	@DataProvider
