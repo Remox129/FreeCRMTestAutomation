@@ -1,19 +1,17 @@
-package com.crm.qa.base;
+package com.crm.qa.testcases;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
+import com.crm.qa.util.TestUtil;
+import com.crm.qa.util.WebEventListener;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
-
-import com.crm.qa.util.TestUtil;
-import com.crm.qa.util.WebEventListener;
 
 public class TestBase {
 	
@@ -25,8 +23,7 @@ public class TestBase {
 	public TestBase(){
 		try {
 			prop = new Properties();
-			FileInputStream ip = new FileInputStream(System.getProperty("user.dir")+ "/src/main/java/com/crm"
-					+ "/qa/config/config.properties");
+			FileInputStream ip = new FileInputStream("/src/test/resources/config.properties");
 			prop.load(ip);
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -44,8 +41,6 @@ public class TestBase {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 		}
-		
-		
 		e_driver = new EventFiringWebDriver(driver);
 		// Now create object of EventListerHandler to register it with EventFiringWebDriver
 		eventListener = new WebEventListener();
@@ -56,17 +51,6 @@ public class TestBase {
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
-		
 		driver.get(prop.getProperty("url"));
-		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-
 }

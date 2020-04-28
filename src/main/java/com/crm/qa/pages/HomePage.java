@@ -31,13 +31,12 @@ public class HomePage extends TestBase {
         PageFactory.initElements(driver, this);
     }
 
-    public String verifyHomePageTitle() {
+    public String getTitle() {
         return driver.getTitle();
     }
-
-
-    public boolean verifyCorrectUserName() {
-        return userNameLabel.isDisplayed();
+    
+    public WebElement getUserNameLabel() {
+        return userNameLabel;
     }
 
     public ContactsPage clickOnContactsLink() {

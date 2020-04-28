@@ -12,13 +12,12 @@ package com.crm.qa.util;
 
 import java.io.IOException;
 
+import com.crm.qa.testcases.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.events.WebDriverEventListener;
-
-import com.crm.qa.base.TestBase;
 
 public class WebEventListener extends TestBase implements WebDriverEventListener {
 
@@ -82,80 +81,35 @@ public class WebEventListener extends TestBase implements WebDriverEventListener
 	/*
 	 * non overridden methods of WebListener class
 	 */
-	public void beforeScript(String script, WebDriver driver) {
-	}
+	public void beforeScript(String script, WebDriver driver) { }
 
-	public void afterScript(String script, WebDriver driver) {
-	}
+	public void afterScript(String script, WebDriver driver) { }
 
-	public void beforeAlertAccept(WebDriver driver) {
-		// TODO Auto-generated method stub
+	public void beforeAlertAccept(WebDriver driver) { }
 
-	}
+	public void afterAlertAccept(WebDriver driver) { }
 
-	public void afterAlertAccept(WebDriver driver) {
-		// TODO Auto-generated method stub
+	public void afterAlertDismiss(WebDriver driver) { }
 
-	}
+	public void beforeAlertDismiss(WebDriver driver) { }
 
-	public void afterAlertDismiss(WebDriver driver) {
-		// TODO Auto-generated method stub
+	public void beforeNavigateRefresh(WebDriver driver) { }
 
-	}
+	public void afterNavigateRefresh(WebDriver driver) { }
 
-	public void beforeAlertDismiss(WebDriver driver) {
-		// TODO Auto-generated method stub
+	public void beforeChangeValueOf(WebElement element, WebDriver driver, CharSequence[] keysToSend) { }
 
-	}
+	public void afterChangeValueOf(WebElement element, WebDriver driver, CharSequence[] keysToSend) { }
 
-	public void beforeNavigateRefresh(WebDriver driver) {
-		// TODO Auto-generated method stub
+	public <X> void afterGetScreenshotAs(OutputType<X> arg0, X arg1) { }
 
-	}
+	public void afterGetText(WebElement arg0, WebDriver arg1, String arg2) { }
 
-	public void afterNavigateRefresh(WebDriver driver) {
-		// TODO Auto-generated method stub
+	public void afterSwitchToWindow(String arg0, WebDriver arg1) { }
 
-	}
+	public <X> void beforeGetScreenshotAs(OutputType<X> arg0) { }
 
-	public void beforeChangeValueOf(WebElement element, WebDriver driver, CharSequence[] keysToSend) {
-		// TODO Auto-generated method stub
+	public void beforeGetText(WebElement arg0, WebDriver arg1) { }
 
-	}
-
-	public void afterChangeValueOf(WebElement element, WebDriver driver, CharSequence[] keysToSend) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public <X> void afterGetScreenshotAs(OutputType<X> arg0, X arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void afterGetText(WebElement arg0, WebDriver arg1, String arg2) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void afterSwitchToWindow(String arg0, WebDriver arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public <X> void beforeGetScreenshotAs(OutputType<X> arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void beforeGetText(WebElement arg0, WebDriver arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void beforeSwitchToWindow(String arg0, WebDriver arg1) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	public void beforeSwitchToWindow(String arg0, WebDriver arg1) { }
 }
